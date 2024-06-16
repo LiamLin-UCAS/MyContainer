@@ -1,0 +1,141 @@
+{
+    "id": "2",
+    "process": {
+        "args": [
+            "sh"
+        ],
+        "env": [
+            "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+            "TERM=xterm"
+        ],
+        "cwd": "/"
+    },
+    "root": {
+        "path": "/tmp/root2",
+        "bundle":"/root/lab/img/ubuntu.tar",
+        "readonly": true
+    },
+    "hostname": "container2",
+    "linux": {
+        "uidMappings": [
+            {
+                "containerID": 0,
+                "hostID": 0,
+                "size": 1
+            }
+        ],
+        "gidMappings": [
+            {
+                "containerID": 0,
+                "hostID": 0,
+                "size": 1
+            }
+        ],
+        "cgroupsPath": "/tmp/cgroup2",
+        "resources": {
+            "network": {
+                "classID": 1048577,
+                "priorities": [
+                    {
+                        "name": "ens33",
+                        "priority": 500
+                    },
+                    {
+                        "name": "docker0",
+                        "priority": 1000
+                    }
+                ]
+            },
+            "pids": {
+                "limit": 32771
+            },
+            "hugepageLimits": [
+                {
+                    "pageSize": "2MB",
+                    "limit": 2097152
+                },
+                {
+                    "pageSize": "1GB",
+                    "limit": 1073741824
+                }
+            ],
+            "memory": {
+                "limit": 20971520,
+                "reservation": 20971520,
+                "swap": 20971520,
+                "kernel": -1,
+                "kernelTCP": -1,
+                "swappiness": 0,
+                "disableOOMKiller": false
+            },
+            "cpu": {
+                "shares": 1024,
+                "quota": 10000,
+                "period": 500000,
+                "realtimeRuntime": 950000,
+                "realtimePeriod": 1000000,
+                "cpus": "2-3",
+                "mems": "0"
+            },
+            "devices": [
+                {
+                    "allow": false,
+                    "access": "rwm"
+                },
+                {
+                    "allow": true,
+                    "type": "c",
+                    "major": 1,
+                    "minor": 3,
+                    "access": "rw"
+                },
+                {
+                    "allow": true,
+                    "type": "b",
+                    "major": 8,
+                    "minor": 0,
+                    "access": "r"
+                }
+            ],
+            "blockIO": {
+                "throttleReadBpsDevice": [
+                    {
+                        "major": 1,
+                        "minor": 3,
+                        "rate": 600
+                    }
+                ],
+                "throttleWriteIOPSDevice": [
+                    {
+                        "major": 8,
+                        "minor": 0,
+                        "rate": 300
+                    }
+                ]
+            }
+        },
+        "namespaces": [
+            {
+                "type": "pid"
+            },
+            {
+                "type": "network"
+            },
+            {
+                "type": "ipc"
+            },
+            {
+                "type": "user"
+            },
+            {
+                "type": "uts"
+            },
+            {
+                "type": "mount"
+            },
+            {
+                "type": "cgroup"
+            }
+        ]
+    }
+}
